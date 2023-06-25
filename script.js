@@ -10,7 +10,7 @@ const hniaElement = document.getElementById("hnia");
 const calcElement = document.getElementById("btn");
 const resultElement = document.getElementById("result");
 const noteElement = document.getElementById("note");
-const soundEffect = new Audio("/soundEffect.mp3");
+const soundEffect = new Audio("soundEffect.mp3");
 
 // ToggleElements:
 const SuperLuckyElement = document.getElementById("SuperLuckyElement");
@@ -21,10 +21,10 @@ const LuckyGamePassElement = document.getElementById("LuckyGamePassElement");
 const InsaneLuckElement = document.getElementById("InsaneLuckElement");
 
 // Boosts:
-const SuperLucky = 6;
+const SuperLucky = 16;
 const UltraLucky = 20;
 const LuckPass = 3;
-const ServerLucky = 6;
+const ServerLucky = 16;
 const MaxMastery = 3;
 const InsaneLuck = 25;
 
@@ -72,49 +72,49 @@ hgbcElement.addEventListener("click", () => {
     selectItem("hgbc");
     hgbcElement.setAttribute("class", "selected");
     [hkadElement, hdofElement, hdocElement, hkacElement, hbrsElement, hniaElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/HGbc.png");
+    imgElement.setAttribute("src", "pics/HGbc.png");
 });
   
 hdofElement.addEventListener("click", () => {
     selectItem("hdof");
     hdofElement.setAttribute("class", "selected");
     [hkadElement, hgbcElement, hdocElement, hkacElement, hbrsElement, hniaElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/HDof.png");
+    imgElement.setAttribute("src", "pics/HDof.png");
 });
   
 hdocElement.addEventListener("click", () => {
     selectItem("hdoc");
     hdocElement.setAttribute("class", "selected");
     [hkadElement, hdofElement, hgbcElement, hkacElement, hbrsElement, hniaElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/HDoc.png");
+    imgElement.setAttribute("src", "pics/HDoc.png");
 });
 
 hkacElement.addEventListener("click", () => {
     selectItem("hkac");
     hkacElement.setAttribute("class", "selected");
     [hkadElement, hdofElement, hgbcElement, hdocElement, hbrsElement, hniaElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/HKac.png");
+    imgElement.setAttribute("src", "pics/HKac.png");
 })
 
 hbrsElement.addEventListener("click", () => {
     selectItem("hbrs");
     hbrsElement.setAttribute("class", "selected");
     [hkadElement, hdofElement, hgbcElement, hkacElement, hdocElement, hniaElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/HBrs.png");
+    imgElement.setAttribute("src", "pics/HBrs.png");
 })
 
 hkadElement.addEventListener("click", () => {
     selectItem("hkad");
     hkadElement.setAttribute("class", "selected");
     [hgbcElement, hdofElement, hdocElement, hkacElement, hbrsElement, hniaElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/hkad.png");
+    imgElement.setAttribute("src", "pics/hkad.png");
 });
 
 hniaElement.addEventListener("click", () => {
     selectItem("hnia");
     hniaElement.setAttribute("class", "selected");
     [hgbcElement, hdofElement, hdocElement, hkacElement, hbrsElement, hkadElement].forEach(element => element.removeAttribute("class"));
-    imgElement.setAttribute("src", "/pics/hnia.png");
+    imgElement.setAttribute("src", "pics/hnia.png");
 })
 
 calcElement.addEventListener("click", () => {
