@@ -151,7 +151,7 @@ const items = {
         selected: false,
         chance: 2_147_483_647,
         hardcore: true,
-        hidden: false
+        hidden: true
     }
 };
 
