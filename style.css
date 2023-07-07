@@ -1,0 +1,197 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-align: center;
+	color: #fff
+}
+
+html{
+	background-color: #25252c;
+	overflow: hidden;
+	font-family: Rubik, sans-serif;
+	user-select: none;
+	display: flex;
+	justify-content: center;
+	align-items: center
+}
+
+h2{
+	font-size: 20pt;
+	color: #a0a0a0
+}
+
+[hidden]{
+	display: none !important
+}
+
+h2.selected{
+	color: #fafafa;
+	font-size: 25pt
+}
+
+.left-side-bar{
+	position: absolute;
+	left: 100px;
+	height: 800px;
+	top: 65px;
+	background-color: #000;
+	border-radius: 20px;
+	width: 350px
+}
+
+.petImage,
+.radio{
+	position: relative;
+	top: 5px
+}
+
+.petImage{
+	background-color: #000;
+	width: 325px;
+	height: 325px;
+	margin: 10px
+}
+
+.radio{
+	width: 30px;
+	height: 30px;
+	cursor: pointer
+}
+
+.bottom-right-div,
+.calc{
+	height: 100px;
+	color: #fff
+}
+
+.calc{
+	width: 600px;
+	background: 0 0;
+	border-radius: 15px;
+	border: 4px solid #fff
+}
+
+.calc:hover{
+	scale: 1.1
+}
+
+.calc:active{
+	transform: translateY(4px);
+	transition: none
+}
+
+.calc:disabled{
+	filter: brightness(50%)
+}
+
+.calc:disabled:hover{
+	scale: 1
+}
+
+.calc:disabled:active{
+	transform: translateY(0)
+}
+
+.right-div{
+	position: absolute;
+	right: 300px;
+	top: 10px
+}
+
+.bottom-right-div{
+	position: absolute;
+	bottom: -50px;
+	right: -40px;
+	z-index: 99999999999;
+	width: 400px;
+	background-color: #25252c
+}
+
+.log,
+.note,
+.rightermore,
+.top{
+	position: relative
+}
+
+.note{
+	top: 50px;
+	color: #fff !important;
+	visibility: hidden
+
+}
+
+.boostBtn{
+	background-color: #fff;
+	color: #000;
+	font-size: 25pt;
+	border: 4px solid #000;
+	width: 30%
+}
+
+.input:focus{
+	border: none;
+	outline: 0
+}
+
+.rightermore{
+	left: 325px;
+	top: -200px
+}
+
+.hardcorePet{
+	padding: 4px;
+	padding-right: 8px;
+	color: transparent;
+	font-size: 22pt;
+	position: absolute;
+	top: 362px;
+	backdrop-filter: brightness(0%);
+	left: 1052px;
+	z-index: 10;
+	font-family: 'Fredoka', sans-serif;
+	background-image: linear-gradient(to bottom, #5b73ff, #beacff);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h2[data-item]{
+	margin-bottom: 15px;
+}
+
+.calc,
+.calc:hover,
+.calc:not(hover) {
+	transition: .5s
+}
+
+.calc {
+	font-size: 60pt
+}
+
+.result {
+	font-size: 70pt;
+}
+
+.left-side-bar,
+.log {
+	box-shadow: 0 0 10px 10px #000
+}
+
+#openLog,
+.boostBtn,
+.calc,
+.left-side-bar [data-item],
+.top {
+	cursor: pointer
+}
+
+#title{
+	margin-top: 10px;
+	font-size: 35pt;
+}
