@@ -144,14 +144,6 @@ const items = {
         chance: 100_000_000,
         hardcore: false,
         hidden: false
-    },
-    cust: {
-        name: "0x47_jd3w",
-        image: false,
-        selected: false,
-        chance: 2_147_483_647,
-        hardcore: true,
-        hidden: true
     }
 };
 
