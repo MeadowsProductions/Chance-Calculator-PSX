@@ -34,7 +34,7 @@ h2.selected{
 	position: absolute;
 	left: 100px;
 	height: 800px;
-	top: 50px;
+	top: 65px;
 	background-color: #000;
 	border-radius: 20px;
 	width: 350px
@@ -155,9 +155,7 @@ h2.selected{
 	background-clip: text;
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	text-align: center;
 }
 
 h2[data-item]{
