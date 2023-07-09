@@ -34,7 +34,7 @@ let a = false;
 const items = {
     hgbc: {
       name: "Huge Green Balloon",
-      image: "https://static.wikia.nocookie.net/pet-simulator/images/f/fc/Huge_Green_Balloon_Cat.png/revision/latest/scale-to-width-down/350?cb=20221113174838",
+      image: "https://i.postimg.cc/BbsQ21Kn/Huge-Green-Balloon-Cat.webp",
       selected: true,
       chance: 100_000_000,
       hardcore: false,
@@ -42,7 +42,7 @@ const items = {
     },
     hdoc: {
       name: "Huge Doodle Cat",
-      image: "https://static.wikia.nocookie.net/pet-simulator/images/f/f6/Huge_Doodle_Cat.png/revision/latest/scale-to-width-down/350?cb=20230114170336",
+      image: "https://i.postimg.cc/C5NM7LGH/Huge-Doodle-Cat.webp",
       selected: false,
       chance: 20_000_000,
       hardcore: false,
@@ -50,7 +50,7 @@ const items = {
     },
     hdof: {
       name: "Huge Doodle Fairy",
-      image: "https://static.wikia.nocookie.net/pet-simulator/images/1/11/Huge_Doodle_Fairy.png/revision/latest/scale-to-width-down/350?cb=20230129015146",
+      image: "https://i.postimg.cc/HxbkJtjN/Huge-Doodle-Fairy.webp",
       selected: false,
       chance: 33_000_000,
       hardcore: false,
@@ -58,7 +58,7 @@ const items = {
     },
     hkac: {
         name: "Huge Kawaii Cat",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/6/64/Huge_Kawaii_Cat.png/revision/latest/scale-to-width-down/350?cb=20230408091132",
+        image: "https://i.postimg.cc/Dz9zyNfs/Huge-Kawaii-Cat.webp",
         selected: false,
         chance: 100_000_000,
         hardcore: false,
@@ -66,7 +66,7 @@ const items = {
     },
     hbrs: {
         name: "Huge Bread Shiba",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/2/20/Huge_Bread_Shiba.png/revision/latest/scale-to-width-down/350?cb=20230408002041",
+        image: "https://i.postimg.cc/sg0XbXtT/Huge-Bread-Shiba.webp",
         selected: false,
         chance: 100_000_000,
         hardcore: true,
@@ -74,7 +74,7 @@ const items = {
     },
     hnia: {
         name: "Huge Ninja Axolotl",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/9/97/PSX_Huge_Ninja_Axolotl.png/revision/latest/scale-to-width-down/350?cb=20230326030610",
+        image: "https://i.postimg.cc/XvGJWWW4/Huge-Ninja-Axolotl.webp",
         selected: false,
         chance: 25_000_000,
         hardcore: false,
@@ -82,7 +82,7 @@ const items = {
     },
     hkad: {
         name: "Huge Kawaii Dragon",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/f/fa/PSX_Huge_Kawaii_Dragon.png/revision/latest/scale-to-width-down/350?cb=20230326030041",
+        image: "https://i.postimg.cc/x1d8sHFk/Huge-Kawaii-Dragon.webp",
         selected: false,
         chance: 50_000_000,
         hardcore: false,
@@ -90,7 +90,7 @@ const items = {
     },
     hgsh: {
         name: "Huge Gamer Shiba",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/4/40/Huge_Gamer_Shiba.png/revision/latest?cb=20230610205638",
+        image: "https://i.postimg.cc/mZQPhTHr/Huge-Gamer-Shiba.webp",
         selected: false,
         chance: 100_000_000,
         hardcore: false,
@@ -98,7 +98,7 @@ const items = {
     },
     hffd: {
         name: "Huge Fire Dalmation",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/5/51/Huge_Firefighter_Dalmatian.png/revision/latest?cb=20230527185628",
+        image: "https://i.postimg.cc/HsdVyFw9/Huge-Firefighter-Dalmatian.webp",
         selected: false,
         chance: 50_000_000,
         hardcore: false,
@@ -106,7 +106,7 @@ const items = {
     },
     hbbr: {
         name: "Huge BBall Retriver",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/7/72/Huge_Basketball_Retriever.png/revision/latest?cb=20230527212335",
+        image: "https://i.postimg.cc/VvBvhF8t/Huge-Basketball-Retriever.webp",
         selected: false,
         chance: 50_000_000,
         hardcore: true,
@@ -114,7 +114,7 @@ const items = {
     },
     hupc: {
         name: "Huge Pineapple Cat",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/c/ca/Huge_Pineapple_Cat.png/revision/latest?cb=20230610192756",
+        image: "https://i.postimg.cc/4NPnbwwk/Huge-Pineapple-Cat.webp",
         selected: false,
         chance: 100_000_000,
         hardcore: false,
@@ -122,7 +122,7 @@ const items = {
     },
     hutk: {
         name: "Huge Tiki Dominus",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/5/56/Huge_Tiki_Dominus.png/revision/latest?cb=20230624210138",
+        image: "https://i.postimg.cc/wMd3FGSH/Huge-Tiki-Dominus.webp",
         selected: false,
         chance: 100_000_000,
         hardcore: false,
@@ -130,7 +130,7 @@ const items = {
     },
         husa: {
         name: "Huge Sun Angelus",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/0/04/Huge_Sun_Angelus.png/revision/latest?cb=20230708184653",
+        image: "https://i.postimg.cc/g0QxLJsx/Huge-Sun-Angelus.webp",
         selected: false,
         chance: 100_000_000,
         hardcore: false,
@@ -138,7 +138,7 @@ const items = {
     },
     huby: {
         name: "Huge Butterfly",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/5/5a/Huge_Butterfly.png/revision/latest?cb=20230624211218",
+        image: "https://i.postimg.cc/ZRNC8SsV/Huge-Butterfly.webp",
         selected: false,
         chance: 200_000_000,
         hardcore: false,
@@ -146,7 +146,7 @@ const items = {
     },
     hupf: {
         name: "Huge Pufferfish",
-        image: "https://static.wikia.nocookie.net/pet-simulator/images/b/b3/Huge_Pufferfish.png/revision/latest?cb=20230627015359",
+        image: "https://i.postimg.cc/P56phK8z/Huge-Pufferfish.webp",
         selected: false,
         chance: 400_000_000,
         varying: true,
