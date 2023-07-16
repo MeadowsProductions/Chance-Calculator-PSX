@@ -128,7 +128,7 @@ const items = {
         hardcore: false,
         hidden: false
     },
-        husa: {
+    husa: {
         name: "Huge Sun Angelus",
         image: "https://i.postimg.cc/g0QxLJsx/Huge-Sun-Angelus.webp",
         selected: false,
@@ -157,7 +157,7 @@ const items = {
         name: "Titanic Cat (:O)",
         image: "https://i.postimg.cc/G3MgJ9mL/image-2023-07-08-212945034.png",
         selected: false,
-        chance: 1_050_000_000, // Guess?? I have no idea what the real odds are.
+        chance: 3_300_000_000,
         hardcore: false,
         hidden: false 
     }
