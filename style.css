@@ -1,3 +1,10 @@
+:root{
+	--HCColorOne: #637aff;
+	--HCColorTwo: #b19cff;
+	--CUColorOne: rgb(255, 50, 90); 
+	--CUColorTwo: rgb(75, 110, 255);
+}
+
 *{
 	margin: 0;
 	padding: 0;
@@ -7,13 +14,11 @@
 }
 
 html{
-	background-color: #25252c;
+	background-color: #25272b;
 	overflow: hidden;
 	font-family: Rubik, sans-serif;
 	user-select: none;
-	display: flex;
-	justify-content: center;
-	align-items: center
+	text-align: center;
 }
 
 h2{
@@ -32,10 +37,11 @@ h2.selected{
 
 .left-side-bar{
 	position: absolute;
-	left: 100px;
+	padding: 10px;
+	left: 40px;
 	height: 800px;
 	top: 65px;
-	background-color: #000;
+	background-color: #000000aa;
 	border-radius: 20px;
 	width: 350px
 }
@@ -68,8 +74,10 @@ h2.selected{
 .calc{
 	width: 600px;
 	background: 0 0;
-	border-radius: 15px;
-	border: 4px solid #fff
+	border-radius: 20px;
+	border: 4px solid #fff;
+	position: relative;
+	top: 50px;
 }
 
 .calc:hover{
@@ -96,7 +104,7 @@ h2.selected{
 .right-div{
 	position: absolute;
 	right: 300px;
-	top: 10px
+	top: 50px
 }
 
 .bottom-right-div{
@@ -105,7 +113,6 @@ h2.selected{
 	right: -40px;
 	z-index: 99999999999;
 	width: 400px;
-	background-color: #25252c
 }
 
 .log,
@@ -116,18 +123,10 @@ h2.selected{
 }
 
 .note{
-	top: 50px;
+	position: relative;
+	top: 150px;
 	color: #fff !important;
 	visibility: hidden
-
-}
-
-.boostBtn{
-	background-color: #fff;
-	color: #000;
-	font-size: 25pt;
-	border: 4px solid #000;
-	width: 30%
 }
 
 .input:focus{
@@ -147,11 +146,29 @@ h2.selected{
 	font-size: 22pt;
 	position: absolute;
 	top: 362px;
-	backdrop-filter: brightness(0%);
+	backdrop-filter: brightness(20%);
 	left: 1052px;
 	z-index: 10;
 	font-family: 'Fredoka', sans-serif;
-	background-image: linear-gradient(to bottom, #5b73ff, #beacff);
+	background-image: linear-gradient(to bottom, var(--HCColorOne), var(--HCColorTwo));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	text-align: center;
+}
+
+.customPet{
+	padding: 4px;
+	padding-right: 8px;
+	color: transparent;
+	font-size: 22pt;
+	position: absolute;
+	top: 362px;
+	backdrop-filter: brightness(20%);
+	left: 780px;
+	z-index: 10;
+	font-family: 'Fredoka', sans-serif;
+	background-image: linear-gradient(to bottom, var(--CUColorOne), var(--CUColorTwo));
 	background-clip: text;
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
@@ -165,31 +182,33 @@ h2[data-item]{
 .calc,
 .calc:hover,
 .calc:not(hover) {
-	transition: .5s
+	transition: 0.5s;
 }
 
 .calc {
-	font-size: 60pt
+	font-size: 60pt;
 }
 
 .result {
 	font-size: 70pt;
+	position: relative;
+	top: 100px;
+	cursor: pointer;
 }
 
 .left-side-bar,
 .log {
-	box-shadow: 0 0 10px 10px #000
+	box-shadow: 0 0 10px 5px #0000008f;
 }
 
 #openLog,
-.boostBtn,
 .calc,
 .left-side-bar [data-item],
 .top {
-	cursor: pointer
+	cursor: pointer;
 }
 
-#title{
+#title {
 	margin-top: 10px;
 	font-size: 35pt;
 }

@@ -1,14 +1,16 @@
 // Element Variables:
-let itemElements = document.querySelectorAll("[data-item]");
 const img = document.getElementById("petImage");
 const resultElement = document.getElementById("result");
 const calcButton = document.getElementById("btn");
 const noteElement = document.getElementById("note");
 const HCIndicator = document.getElementById("hardcorePet");
+const CUIndicator = document.getElementById("customPet");
 const container = document.getElementById("container");
 const titleElement = document.getElementById("title");
 const itemContainers = document.getElementById("items");
+const apiElement = document.getElementById("apikey");
 const soundEffect = new Audio("SoundEffect.mp3");
+let itemElements = document.querySelectorAll("[data-item]");
 
 // Toggle Elements:
 const SuperLuckyElement = document.getElementById("SuperLuckyElement");
@@ -17,162 +19,232 @@ const ServerLuckyElement = document.getElementById("ServerLuckyElement");
 const MaxMasteryElement = document.getElementById("MaxMasteryLevel");
 const LuckyGamePassElement = document.getElementById("LuckyGamePassElement");
 const InsaneLuckElement = document.getElementById("InsaneLuckElement");
-const VaryingBoosts = document.getElementById("SpecialBoostElement");
-const hmmm = document.getElementById(atob("c2hoaGg="));
 
-// Boosts:
-const SuperLucky = 6;
-const UltraLucky = 20;
+// Amount
 const LuckPass = 3.5;
-const ServerLucky = 6;
-const MaxMastery = 2.5;
+const SixTimes = 6;
+const UltraLucky = 20;
 const InsaneLuck = 25;
 
-// Other Variables:
-let a = false;
+// IMPORTANT
+const chanceCap = true;
+const disabled = false;
 
 const items = {
     hgbc: {
-      name: "Huge Green Balloon",
-      image: "https://i.postimg.cc/BbsQ21Kn/Huge-Green-Balloon-Cat.webp",
-      selected: true,
-      chance: 100_000_000,
-      hardcore: false,
-      hidden: false
+        name: "Huge Green Balloon",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/f/fc/Huge_Green_Balloon_Cat.png/revision/latest/scale-to-width-down/350?cb=20221113174838",
+        selected: true,
+        chance: 100_000_000,
+    },
+    hupe: {
+        name: "Huge Peacock",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/9/97/Huge_Peacock.png/revision/latest/scale-to-width-down/350?cb=20230204183905",
+        chance: 20_000,
+        selected: false,
+        disboost: true
     },
     hdoc: {
-      name: "Huge Doodle Cat",
-      image: "https://i.postimg.cc/C5NM7LGH/Huge-Doodle-Cat.webp",
-      selected: false,
-      chance: 20_000_000,
-      hardcore: false,
-      hidden: false
+        name: "Huge Doodle Cat",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/f/f6/Huge_Doodle_Cat.png/revision/latest/scale-to-width-down/350?cb=20230114170336",
+        selected: false,
+        chance: 20_000_000,
+        hardcore: false,
     },
     hdof: {
-      name: "Huge Doodle Fairy",
-      image: "https://i.postimg.cc/HxbkJtjN/Huge-Doodle-Fairy.webp",
-      selected: false,
-      chance: 33_000_000,
-      hardcore: false,
-      hidden: false
+        name: "Huge Doodle Fairy",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/1/11/Huge_Doodle_Fairy.png/revision/latest/scale-to-width-down/350?cb=20230129015146",
+        selected: false,
+        chance: 33_000_000,
     },
     hkac: {
         name: "Huge Kawaii Cat",
-        image: "https://i.postimg.cc/Dz9zyNfs/Huge-Kawaii-Cat.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/6/64/Huge_Kawaii_Cat.png/revision/latest?cb=20230803053323",
         selected: false,
         chance: 100_000_000,
-        hardcore: false,
-        hidden: false
     },
     hbrs: {
         name: "Huge Bread Shiba",
-        image: "https://i.postimg.cc/sg0XbXtT/Huge-Bread-Shiba.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/2/20/Huge_Bread_Shiba.png/revision/latest/scale-to-width-down/350?cb=20230408002041",
         selected: false,
         chance: 100_000_000,
         hardcore: true,
-        hidden: false
     },
     hnia: {
         name: "Huge Ninja Axolotl",
-        image: "https://i.postimg.cc/XvGJWWW4/Huge-Ninja-Axolotl.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/9/97/PSX_Huge_Ninja_Axolotl.png/revision/latest/scale-to-width-down/350?cb=20230326030610",
         selected: false,
-        chance: 25_000_000,
-        hardcore: false,
-        hidden: false
+        chance: 25_000_000,      
     },
     hkad: {
         name: "Huge Kawaii Dragon",
-        image: "https://i.postimg.cc/x1d8sHFk/Huge-Kawaii-Dragon.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/f/fa/PSX_Huge_Kawaii_Dragon.png/revision/latest/scale-to-width-down/350?cb=20230326030041",
         selected: false,
         chance: 50_000_000,
-        hardcore: false,
-        hidden: false
     },
     hgsh: {
         name: "Huge Gamer Shiba",
-        image: "https://i.postimg.cc/mZQPhTHr/Huge-Gamer-Shiba.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/4/40/Huge_Gamer_Shiba.png/revision/latest?cb=20230610205638",
         selected: false,
         chance: 100_000_000,
-        hardcore: false,
-        hidden: false
     },
     hffd: {
         name: "Huge Fire Dalmation",
-        image: "https://i.postimg.cc/HsdVyFw9/Huge-Firefighter-Dalmatian.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/5/51/Huge_Firefighter_Dalmatian.png/revision/latest?cb=20230527185628",
         selected: false,
         chance: 50_000_000,
-        hardcore: false,
-        hidden: false
     },
     hbbr: {
         name: "Huge BBall Retriver",
-        image: "https://i.postimg.cc/VvBvhF8t/Huge-Basketball-Retriever.webp",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/7/72/Huge_Basketball_Retriever.png/revision/latest?cb=20230527212335",
         selected: false,
         chance: 50_000_000,
         hardcore: true,
-        hidden: false
     },
-    hupc: {
-        name: "Huge Pineapple Cat",
-        image: "https://i.postimg.cc/4NPnbwwk/Huge-Pineapple-Cat.webp",
+    hwfa: {
+        name: "Huge Wildfire Agony",
+        image: "https://static.wikia.nocookie.net/pet-simulator/images/2/25/Huge_Wildfire_Agony.png/revision/latest/scale-to-width-down/350?cb=20230725070849",
         selected: false,
-        chance: 100_000_000,
-        hardcore: false,
-        hidden: false
+        chance: 52_631_580,
     },
-    hutk: {
-        name: "Huge Tiki Dominus",
-        image: "https://i.postimg.cc/wMd3FGSH/Huge-Tiki-Dominus.webp",
+    hdom: {
+        name: "Huge Domortuus",
+        image: "https://cdn.discordapp.com/attachments/1131584322881724446/1131930037034168360/Untitled17_20230703163158.png",
         selected: false,
-        chance: 100_000_000,
-        hardcore: false,
-        hidden: false
-    },
-    husa: {
-        name: "Huge Sun Angelus",
-        image: "https://i.postimg.cc/g0QxLJsx/Huge-Sun-Angelus.webp",
-        selected: false,
-        chance: 100_000_000,
-        hardcore: false,
-        hidden: false,
-    },
-    huby: {
-        name: "Huge Butterfly",
-        image: "https://i.postimg.cc/ZRNC8SsV/Huge-Butterfly.webp",
-        selected: false,
-        chance: 200_000_000,
-        hardcore: false,
-        hidden: false
-    },
-    hupf: {
-        name: "Huge Pufferfish",
-        image: "https://i.postimg.cc/P56phK8z/Huge-Pufferfish.webp",
-        selected: false,
-        chance: 400_000_000,
-        varying: true,
-        hardcore: false,
-        hidden: false
-    },
-    tica: {
-        name: "Titanic Cat (:O)",
-        image: "https://i.postimg.cc/G3MgJ9mL/image-2023-07-08-212945034.png",
-        selected: false,
-        chance: 3_300_000_000,
-        hardcore: false,
-        hidden: false 
+        chance: 8_000_000,
+        custom: true,
+        hardcore: true,
     }
 };
 
-function selectItem(e){itemElements=document.querySelectorAll("[data-item]");itemElements.forEach(el=>el.removeAttribute("class"));turnOffVarying(),titleElement.innerText=items[e].name;resultElement.innerHTML="";noteElement.style.visibility="hidden";HCIndicator.setAttribute("hidden",!0),!0===items[e].varying?VaryingBoosts.removeAttribute("hidden"):!0===items[e].hardcore&&HCIndicator.removeAttribute("hidden"),disable(),items[e].selected=!0,document.getElementById(e).setAttribute("class","selected"),!1===items[e].image?img.setAttribute("src","Pics/Nimg.png"):img.setAttribute("src",items[e].image)}
-function animateImg(){soundEffect.play(),setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible",setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible",setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible";setTimeout(()=>{img.style.visibility="hidden";setTimeout(()=>{img.style.visibility="visible"},75)},70)},65)},60)},55)},50)},30)})}
-function turnOffVarying(){VaryingBoosts.setAttribute("hidden",!0),VaryingBoosts.innerText="1X",VaryingBoosts.style.backgroundColor="#FFFFFF"}
-function disable(){for(let e in itemElements.forEach(e=>e.removeAttribute("class")),items)items[e].selected=!1}
-function calculate($){$>=1e12&&($=1e12),$=parseInt($);let e=0;InsaneLuckElement.checked&&(e+=InsaneLuck),SuperLuckyElement.checked&&(e+=SuperLucky),ServerLuckyElement.checked&&(e+=ServerLucky),LuckyGamePassElement.checked&&(e+=LuckPass),MaxMasteryElement.checked&&(e+=MaxMastery),UltraLuckyElement.checked&&(e+=UltraLucky),!0===a&&($/=3.2),0===e&&(e=1),chance=parseInt($/=e),chance=parseInt(chance/=parseInt(VaryingBoosts.innerText)),percent=100/$,chance=String(chance.toLocaleString()),resultElement.innerHTML="1 in "+chance,String((percent=ConvertExponent(percent)).length)>=12&&(percent=String(percent).slice(0,12)),setTimeout(()=>{resultElement.innerHTML="1 in "+chance+"<br>"+percent+"%",setTimeout(()=>{noteElement.style.visibility="visible",setTimeout(()=>{calcButton.removeAttribute("disabled")},250)},225)},150)}
-function ConvertExponent(t){var e="";"-"==(t+="").charAt(0)&&(t=t.substring(1),e="-");var r=t.split(/[eE]/g);if(r.length<2)return e+t;var n=r[1];if(0==n||-0==n)return e+r[0];var $=1.1.toLocaleString().substring(1,2),i=(r=r[0].split($))[1]||"",l=r[0];return n>0?(n>i.length&&(i+="0".repeat(n-i.length)),(i=i.slice(0,n)+$+i.slice(n)).charAt(i.length-1)==$&&(i=i.slice(0,-1))):((num=Math.abs(n)-l.length)>0&&(l="0".repeat(num)+l),(l=l.slice(0,n)+$+l.slice(n)).charAt(0)==$&&(l="0"+l)),e+l+i}
-itemElements.forEach(el=>el.addEventListener("click",function(){selectItem(el.id)}));
-VaryingBoosts.addEventListener("click",()=>{let e=VaryingBoosts.innerText;1===parseInt(e)&&(VaryingBoosts.innerText="2X",VaryingBoosts.style.backgroundColor="#EF0010"),2===parseInt(e)&&(VaryingBoosts.innerText="3X",VaryingBoosts.style.backgroundColor="#EF0099"),3===parseInt(e)&&(VaryingBoosts.innerText="5X",VaryingBoosts.style.backgroundColor="#FFA500"),5===parseInt(e)&&(VaryingBoosts.innerText="10X",VaryingBoosts.style.backgroundColor="#FFEE12"),10===parseInt(e)&&(VaryingBoosts.innerText="20X",VaryingBoosts.style.backgroundColor="#0065FF"),20===parseInt(e)&&(VaryingBoosts.innerText="50X",VaryingBoosts.style.backgroundColor="#00FFAA"),50===parseInt(e)&&(VaryingBoosts.innerText="1X",VaryingBoosts.style.backgroundColor="#FFFFFF")});
-calcButton.addEventListener("click",()=>{resultElement.innerHTML = "";for(let e in animateImg(),noteElement.style.visibility="hidden",calcButton.setAttribute("disabled",!0),items)!0===items[e].selected&&setTimeout(()=>{calculate(items[e].chance)},500)})
-hmmm.addEventListener(("click"),()=>{if(a===false){a=true;}else{a=false;}});
-for(let key in items){if(!document.getElementById(key)){let el=document.createElement("h2");el.id=key;el.dataset.item="";el.textContent=items[key].name;el.addEventListener(("click"),()=>{selectItem(key)});itemContainers.appendChild(el);};if(items[key].selected){titleElement.innerText=items[key].name;};if(items[key].hidden){document.getElementById(key).remove()}};
-setInterval(()=>{for(let key in items){setTimeout(()=>{container.removeAttribute("hidden")},75);if(items[key].selected){document.getElementById(key).setAttribute("class","selected");img.setAttribute("src",items[key].image);}}}, 50)
-// Framework
+// Code Starts NOW
+
+for (let key in items) {
+    if (!document.getElementById(key)) {
+        let el = document.createElement("h2");
+        el.id = key;
+        el.dataset.item = "";
+        el.textContent = items[key].name;
+        el.addEventListener("click", () => {
+            selectItem(key);
+        });
+        itemContainers.appendChild(el);
+    }
+    if (items[key].selected) {
+        titleElement.innerText = items[key].name;
+    }
+    if (items[key].custom && !localStorage.getItem("admin")) {
+        document.getElementById(key).remove();
+    }
+}
+
+for(let key in items){
+    if(items[key].selected){
+        img.setAttribute("src", items[key].image);
+        document.getElementById(key).setAttribute("class", "selected");
+    }
+}
+
+function selectItem(e) {
+    let id = e;
+    document.querySelectorAll("[data-item]").forEach((el) => el.removeAttribute("class"));
+    disable();
+    titleElement.innerText = items[id].name;
+    resultElement.innerHTML = "";
+    noteElement.style.visibility = "hidden";
+
+    items[id].selected = true;
+    document.getElementById(id).setAttribute("class", "selected");
+    visualManager(id);
+}
+
+function visualManager(e) {
+    let id = e;
+    img.setAttribute("src", items[id].image);
+    if(!items[id].image) {
+        img.setAttribute("src", "Pics/Nimg.png");
+    }
+    HCIndicator.setAttribute("hidden", true);
+    CUIndicator.setAttribute("hidden", true);
+    if(items[id].hardcore) {
+        HCIndicator.removeAttribute("hidden");
+    }
+    if(items[id].custom) {
+        CUIndicator.removeAttribute("hidden");    
+    }
+}
+
+function animateImg() {soundEffect.play();setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible",setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible",setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible",setTimeout(()=>{img.style.visibility="hidden",setTimeout(()=>{img.style.visibility="visible"},75)},70)},65)},60)},55)},50)},30)})}
+
+function turnOffVarying() {
+    VaryingBoosts.setAttribute("hidden", true);
+    VaryingBoosts.innerText = "1X";
+    VaryingBoosts.style.backgroundColor = "#FFFFFF";
+}
+
+function disable() {
+    itemElements.forEach((e) => e.removeAttribute("class"));
+    for (let e in items) {items[e].selected = false};
+}
+
+function calculate(chance) {
+    if(chance > 1e12 && chanceCap){
+        chance = 1_000_000_000_000;
+    }
+    chance = parseInt(chance);
+    let boost = 0;
+    MaxMasteryElement.checked && (boost += LuckPass-1);
+    LuckyGamePassElement.checked && (boost += LuckPass);
+    SuperLuckyElement.checked && (boost += SixTimes);
+    ServerLuckyElement.checked && (boost += SixTimes);
+    UltraLuckyElement.checked && (boost += UltraLucky);
+    InsaneLuckElement.checked && (boost += InsaneLuck);
+    if(boost === 0){
+        boost = 1;
+    }
+    chance = parseInt(chance /= boost);
+    percent = 100 / chance;
+    percent = percent.toString().slice(0, 10);
+    chance = String(chance.toLocaleString());
+    resultElement.innerHTML = "1 in " + chance;
+    setTimeout(() => {
+        resultElement.innerHTML = "1 in " + chance + "<br>" + " " + ConvertExponent(percent.toString()) + "%";
+            setTimeout(() => {
+                noteElement.style.visibility = "visible";
+                    setTimeout(() => {
+                        calcButton.removeAttribute("disabled");
+                    }, 250);
+            }, 225);
+    }, 150);
+}
+
+function ConvertExponent(num) {
+    const [base, exponent] = num.split("e-");
+    const zeros = "0".repeat(exponent - 1);
+    return "0." + zeros + base.replace(".", "");
+}
+
+calcButton.addEventListener("click", () => {
+    resultElement.innerHTML = "";
+    animateImg();
+    noteElement.style.visibility = "hidden"; 
+    calcButton.setAttribute("disabled", true);
+    for (let e in items) {
+        if (items[e].selected) {
+            setTimeout(() => {
+                calculate(items[e].chance);
+            }, 500);
+        }
+    }
+})
+
+setTimeout(() => {
+    if(!disabled) {
+        container.removeAttribute("hidden");
+    }
+}, 150)
+
+document.querySelector("[data-date]").addEventListener("click", () => {
+    alert("Current date: " + new Date);
+    alert("Thats right, I know where you are."); // Trolly
+})
